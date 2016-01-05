@@ -1,4 +1,4 @@
-// Automatically generated on 2016-01-05T08:11:47-08:00
+// Automatically generated on 2016-01-05T19:23:38+00:00
 // DO NOT EDIT or your changes may be overwritten
 
 /* jshint maxstatements:2147483647  */
@@ -135,6 +135,68 @@ xdr.struct("Option", [
   ["key", xdr.string(64)],
   ["value", xdr.string(1024)],
 ]);
+
+// === xdr source ============================================================
+//
+//   enum MessageType {
+//     CLUSTER_CONFIG  = 0,
+//     INDEX           = 1,
+//     REQUEST         = 2,
+//     RESPONSE        = 3,
+//     PING            = 4,
+//   
+//     INDEX_UPDATE    = 6,
+//     CLOSE           = 7
+//   };
+//
+// ===========================================================================
+xdr.enum("MessageType", {
+  clusterConfig: 0,
+  index: 1,
+  request: 2,
+  response: 3,
+  ping: 4,
+  indexUpdate: 6,
+  close: 7,
+});
+
+// === xdr source ============================================================
+//
+//   union Message switch(MessageType type)
+//   {
+//     case CLUSTER_CONFIG:
+//       ClusterConfigMessage content;
+//     case INDEX:
+//       void;
+//     case REQUEST:
+//       void;
+//     case RESPONSE:
+//       void;
+//     case PING:
+//       void;
+//     case INDEX_UPDATE:
+//       void;
+//     case CLOSE:
+//       void;
+//   };
+//
+// ===========================================================================
+xdr.union("Message", {
+  switchOn: xdr.lookup("MessageType"),
+  switchName: "type",
+  switches: [
+    ["clusterConfig", "content"],
+    ["index", xdr.void()],
+    ["request", xdr.void()],
+    ["response", xdr.void()],
+    ["ping", xdr.void()],
+    ["indexUpdate", xdr.void()],
+    ["close", xdr.void()],
+  ],
+  arms: {
+    content: xdr.lookup("ClusterConfigMessage"),
+  },
+});
 
 });
 module.exports = types;
