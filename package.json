@@ -1,0 +1,31 @@
+{
+  "name": "bep-js",
+  "version": "0.0.0",
+  "description": "Block Exchange Protocol implemented in JavaScript (NodeJS)",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MingweiSamuel/bep-js.git"
+  },
+  "keywords": [
+    "syncthing",
+    "block",
+    "exchange",
+    "protocol",
+    "javascript"
+  ],
+  "author": "Mingwei Samuel",
+  "license": "GPLv2",
+  "bugs": {
+    "url": "https://github.com/MingweiSamuel/bep-js/issues"
+  },
+  "dependencies": {
+    "buffer-offset": "^0.1.1",
+    "js-xdr": "0.0.12",
+    "lz4": "^0.5.1",
+    "packet": "0.0.7"
+  }
+}
